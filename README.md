@@ -15,6 +15,14 @@ As of now, original images etc. are kept with the code for simplicity; if future
 
 Based on Notepad++ 6.3.3
 
+Rationale
+=====
+
+Why a fork to run on winelib? Notepad++ already runs well on Wine, so why port it (when your port doesn't even run well)?
+
+Well, the goal is to build up the build system using winelib, and port it bit by bit to a platform independent toolkit.
+Perhaps eventually we can build the port cross system on Windows again. :)
+
 Prerequisites
 =====
 
