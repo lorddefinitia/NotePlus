@@ -14,3 +14,13 @@ Roadmap
 - Remove as many warnings as possible
 - Abstract/port as many w32 api call away as possible
 - Work on a Qt UI port.
+
+
+Building
+=====
+
+cd to the visual.net directory under PowerEditor, and type 
+
+`./makeit`
+
+
