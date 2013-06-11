@@ -7,6 +7,20 @@ Compiles (32-bit)
 
 Does not (seem to) run correctly.
 
+License
+=====
+This code is a fork of Don HR's excellent Notepad++ for Windows. As such, original copyrights his, code licensed under the GPL.
+
+Based on Notepad++ 6.3.3
+
+Prerequisites
+=====
+
+- wine (32bit)
+- wine-dev (32bit)
+- g++ (make sure you have the 32 bit compiler tool chain and libraries)
+- make
+
 Roadmap
 =====
 
@@ -22,5 +36,20 @@ Building
 cd to the visual.net directory under PowerEditor, and type 
 
 `./makeit`
+
+Running
+=====
+
+Once you have successfully built the exe, copy both notepad++.exe and notepad++.exe.so to a 32bit wine prefix, run:
+
+`./notepad++.exe`
+
+To debug, you can try
+
+`WINEDEBUG=warn+all wine ./notepad++.exe.so`
+
+or
+
+`winedbg --gdb ./notepad++.exe.so`
 
 
