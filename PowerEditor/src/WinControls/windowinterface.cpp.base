@@ -1,0 +1,40 @@
+void WindowInterface::init(HINSTANCE hInst, HWND parent, HWND hSelf)  {		Window::init(hInst, parent);
+		_hSelf = hSelf;
+	};
+
+void WindowInterface::destroy()  {};
+void WindowInterface::init(HINSTANCE hInst, HWND parent, HWND hSelf)  {		Window::init(hInst, parent);
+		_hSelf = hSelf;
+	};
+
+void WindowInterface::destroy()  {};
+void WindowInterface::init(HINSTANCE hInst, HWND parent, HWND hSelf)  {		Window::init(hInst, parent);
+		_hSelf = hSelf;
+	};
+
+void WindowInterface::destroy()  {};
+void WindowInterface::init(HINSTANCE hInst, HWND parent, HWND hSelf)  {		Window::init(hInst, parent);
+		_hSelf = hSelf;
+	};
+
+void WindowInterface::destroy()  {};
+void WindowInterface::init(HINSTANCE hInst, HWND parent, HWND hSelf)  {		Window::init(hInst, parent);
+		_hSelf = hSelf;
+	};
+
+void WindowInterface::destroy()  {};
+void WindowInterface::init(HINSTANCE hInst, HWND parent, HWND hSelf)  {		Window::init(hInst, parent);
+		_hSelf = hSelf;
+	};
+
+void WindowInterface::destroy()  {};
+voidWindowInterface::init(HINSTANCE hInst, HWND parent, HWND hSelf)  {		Window::init(hInst, parent);
+		_hSelf = hSelf;
+	};
+
+voidWindowInterface::destroy()  {};
+voidWindowInterface::init(HINSTANCE hInst, HWND parent, HWND hSelf)  {		Window::init(hInst, parent);
+		_hSelf = hSelf;
+	};
+
+voidWindowInterface::destroy()  {};

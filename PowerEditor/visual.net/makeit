@@ -1,0 +1,4 @@
+#!/bin/bash 
+
+#make clean 2>&1 | grep error
+make 2>&1 | grep error

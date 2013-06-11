@@ -1,0 +1,20 @@
+find . -iname *\.cxx | xargs perl -0pi -e 's/#include "([^"]+)"/#include "\L$1\E"/g'
+
+find . | sed -r 's/\/([a-Z]*).h$/\/\L\1\E.h/p'
+
+#command substitution
+
+find . | grep '.h$' |  tee >(echo) >(sed -r 's/\/([a-Z]*).h$/\/\L\1\E.h/p')
+
+#output to a file and use xargs?
+#how to make a file descriptor
+#run two commands
+#collect
+#xargs
+#need to be able to redirect to $(list)
+
+#find . | grep '.h$' |  tee >(echo > /dev/stdout) >(sed -r 's/\/([a-Z]*).h$/\/found \L\1\E.h/p' > /dev/stdout)
+
+#... mv A B 
+
+for vr in $(find . -iname '*_rc.h'); do cp --parents $vr ../../PowerEditor; done

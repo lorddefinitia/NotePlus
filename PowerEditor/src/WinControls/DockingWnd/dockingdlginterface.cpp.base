@@ -1,0 +1,273 @@
+DockingDlgInterface::_dlgID(-1), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+DockingDlgInterface::_dlgID(dlgID), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+void DockingDlgInterface::init(HINSTANCE hInst, HWND parent)	 {
+		StaticDialog::init(hInst, parent);
+		TCHAR temp[MAX_PATH];
+		::GetModuleFileName((HMODULE)hInst, temp, MAX_PATH);
+		_moduleName = PathFindFileName(temp);
+	};
+
+void DockingDlgInterface::create(tTbData * data, bool isRTL = false) {
+		StaticDialog::create(_dlgID, isRTL);
+		TCHAR temp[MAX_PATH];
+		::GetWindowText(_hSelf, temp, MAX_PATH);
+		_pluginName = temp;
+        // user information
+		data->hClient		= _hSelf;
+		data->pszName		= (TCHAR *)_pluginName.c_str();
+
+		// supported features by plugin
+		data->uMask			= 0;
+
+		// additional info
+		data->pszAddInfo	= NULL;
+	};
+
+void DockingDlgInterface::updateDockingDlg()  {
+		::SendMessage(_hParent, NPPM_DMMUPDATEDISPINFO, 0, (LPARAM)_hSelf);
+	}
+
+void DockingDlgInterface::destroy()  {
+    };
+
+void DockingDlgInterface::display(bool toShow = true) const  {
+		::SendMessage(_hParent, toShow?NPPM_DMMSHOW:NPPM_DMMHIDE, 0, (LPARAM)_hSelf);
+	};
+
+DockingDlgInterface::getPluginFileName() const  {
+		return _moduleName.c_str();
+	};
+
+DockingDlgInterface::_dlgID(-1), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+DockingDlgInterface::_dlgID(dlgID), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+void DockingDlgInterface::init(HINSTANCE hInst, HWND parent)	 {		StaticDialog::init(hInst, parent);
+		TCHAR temp[MAX_PATH];
+		::GetModuleFileName((HMODULE)hInst, temp, MAX_PATH);
+		_moduleName = PathFindFileName(temp);
+	};
+
+void DockingDlgInterface::create(tTbData * data, bool isRTL = false) {		StaticDialog::create(_dlgID, isRTL);
+		TCHAR temp[MAX_PATH];
+		::GetWindowText(_hSelf, temp, MAX_PATH);
+		_pluginName = temp;
+        // user information
+		data->hClient		= _hSelf;
+		data->pszName		= (TCHAR *)_pluginName.c_str();
+
+		// supported features by plugin
+		data->uMask			= 0;
+
+		// additional info
+		data->pszAddInfo	= NULL;
+	};
+
+void DockingDlgInterface::updateDockingDlg()  {		::SendMessage(_hParent, NPPM_DMMUPDATEDISPINFO, 0, (LPARAM)_hSelf);
+	}
+
+void DockingDlgInterface::destroy()  {    };
+
+void DockingDlgInterface::display(bool toShow = true) const  {		::SendMessage(_hParent, toShow?NPPM_DMMSHOW:NPPM_DMMHIDE, 0, (LPARAM)_hSelf);
+	};
+
+DockingDlgInterface::getPluginFileName() const  {		return _moduleName.c_str();
+	};
+
+DockingDlgInterface::_dlgID(-1), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+DockingDlgInterface::_dlgID(dlgID), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+void DockingDlgInterface::init(HINSTANCE hInst, HWND parent)	 {		StaticDialog::init(hInst, parent);
+		TCHAR temp[MAX_PATH];
+		::GetModuleFileName((HMODULE)hInst, temp, MAX_PATH);
+		_moduleName = PathFindFileName(temp);
+	};
+
+void DockingDlgInterface::create(tTbData * data, bool isRTL = false) {		StaticDialog::create(_dlgID, isRTL);
+		TCHAR temp[MAX_PATH];
+		::GetWindowText(_hSelf, temp, MAX_PATH);
+		_pluginName = temp;
+        // user information
+		data->hClient		= _hSelf;
+		data->pszName		= (TCHAR *)_pluginName.c_str();
+
+		// supported features by plugin
+		data->uMask			= 0;
+
+		// additional info
+		data->pszAddInfo	= NULL;
+	};
+
+void DockingDlgInterface::updateDockingDlg()  {		::SendMessage(_hParent, NPPM_DMMUPDATEDISPINFO, 0, (LPARAM)_hSelf);
+	}
+
+void DockingDlgInterface::destroy()  {    };
+
+void DockingDlgInterface::display(bool toShow = true) const  {		::SendMessage(_hParent, toShow?NPPM_DMMSHOW:NPPM_DMMHIDE, 0, (LPARAM)_hSelf);
+	};
+
+DockingDlgInterface::getPluginFileName() const  {		return _moduleName.c_str();
+	};
+
+DockingDlgInterface::_dlgID(-1), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+DockingDlgInterface::_dlgID(dlgID), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+void DockingDlgInterface::init(HINSTANCE hInst, HWND parent)	 {		StaticDialog::init(hInst, parent);
+		TCHAR temp[MAX_PATH];
+		::GetModuleFileName((HMODULE)hInst, temp, MAX_PATH);
+		_moduleName = PathFindFileName(temp);
+	};
+
+void DockingDlgInterface::create(tTbData * data, bool isRTL = false) {		StaticDialog::create(_dlgID, isRTL);
+		TCHAR temp[MAX_PATH];
+		::GetWindowText(_hSelf, temp, MAX_PATH);
+		_pluginName = temp;
+        // user information
+		data->hClient		= _hSelf;
+		data->pszName		= (TCHAR *)_pluginName.c_str();
+
+		// supported features by plugin
+		data->uMask			= 0;
+
+		// additional info
+		data->pszAddInfo	= NULL;
+	};
+
+void DockingDlgInterface::updateDockingDlg()  {		::SendMessage(_hParent, NPPM_DMMUPDATEDISPINFO, 0, (LPARAM)_hSelf);
+	}
+
+void DockingDlgInterface::destroy()  {    };
+
+void DockingDlgInterface::display(bool toShow = true) const  {		::SendMessage(_hParent, toShow?NPPM_DMMSHOW:NPPM_DMMHIDE, 0, (LPARAM)_hSelf);
+	};
+
+DockingDlgInterface::getPluginFileName() const  {		return _moduleName.c_str();
+	};
+
+DockingDlgInterface::_dlgID(-1), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+DockingDlgInterface::_dlgID(dlgID), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+void DockingDlgInterface::init(HINSTANCE hInst, HWND parent)	 {		StaticDialog::init(hInst, parent);
+		TCHAR temp[MAX_PATH];
+		::GetModuleFileName((HMODULE)hInst, temp, MAX_PATH);
+		_moduleName = PathFindFileName(temp);
+	};
+
+void DockingDlgInterface::create(tTbData * data, bool isRTL = false) {		StaticDialog::create(_dlgID, isRTL);
+		TCHAR temp[MAX_PATH];
+		::GetWindowText(_hSelf, temp, MAX_PATH);
+		_pluginName = temp;
+        // user information
+		data->hClient		= _hSelf;
+		data->pszName		= (TCHAR *)_pluginName.c_str();
+
+		// supported features by plugin
+		data->uMask			= 0;
+
+		// additional info
+		data->pszAddInfo	= NULL;
+	};
+
+void DockingDlgInterface::updateDockingDlg()  {		::SendMessage(_hParent, NPPM_DMMUPDATEDISPINFO, 0, (LPARAM)_hSelf);
+	}
+
+void DockingDlgInterface::destroy()  {    };
+
+void DockingDlgInterface::display(bool toShow = true) const  {		::SendMessage(_hParent, toShow?NPPM_DMMSHOW:NPPM_DMMHIDE, 0, (LPARAM)_hSelf);
+	};
+
+DockingDlgInterface::getPluginFileName() const  {		return _moduleName.c_str();
+	};
+
+DockingDlgInterface::_dlgID(-1), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+DockingDlgInterface::_dlgID(dlgID), _isFloating(TRUE), _iDockedPos(0), _pluginName(TEXT(""))  {};
+void DockingDlgInterface::init(HINSTANCE hInst, HWND parent)	 {		StaticDialog::init(hInst, parent);
+		TCHAR temp[MAX_PATH];
+		::GetModuleFileName((HMODULE)hInst, temp, MAX_PATH);
+		_moduleName = PathFindFileName(temp);
+	};
+
+void DockingDlgInterface::create(tTbData * data, bool isRTL = false) {		StaticDialog::create(_dlgID, isRTL);
+		TCHAR temp[MAX_PATH];
+		::GetWindowText(_hSelf, temp, MAX_PATH);
+		_pluginName = temp;
+        // user information
+		data->hClient		= _hSelf;
+		data->pszName		= (TCHAR *)_pluginName.c_str();
+
+		// supported features by plugin
+		data->uMask			= 0;
+
+		// additional info
+		data->pszAddInfo	= NULL;
+	};
+
+void DockingDlgInterface::updateDockingDlg()  {		::SendMessage(_hParent, NPPM_DMMUPDATEDISPINFO, 0, (LPARAM)_hSelf);
+	}
+
+void DockingDlgInterface::destroy()  {    };
+
+void DockingDlgInterface::display(bool toShow = true) const  {		::SendMessage(_hParent, toShow?NPPM_DMMSHOW:NPPM_DMMHIDE, 0, (LPARAM)_hSelf);
+	};
+
+DockingDlgInterface::getPluginFileName() const  {		return _moduleName.c_str();
+	};
+
+voidDockingDlgInterface::init(HINSTANCE hInst, HWND parent)	 {		StaticDialog::init(hInst, parent);
+		TCHAR temp[MAX_PATH];
+		::GetModuleFileName((HMODULE)hInst, temp, MAX_PATH);
+		_moduleName = PathFindFileName(temp);
+	};
+
+voidDockingDlgInterface::create(tTbData * data, bool isRTL = false) {		StaticDialog::create(_dlgID, isRTL);
+		TCHAR temp[MAX_PATH];
+		::GetWindowText(_hSelf, temp, MAX_PATH);
+		_pluginName = temp;
+        // user information
+		data->hClient		= _hSelf;
+		data->pszName		= (TCHAR *)_pluginName.c_str();
+
+		// supported features by plugin
+		data->uMask			= 0;
+
+		// additional info
+		data->pszAddInfo	= NULL;
+	};
+
+voidDockingDlgInterface::updateDockingDlg()  {		::SendMessage(_hParent, NPPM_DMMUPDATEDISPINFO, 0, (LPARAM)_hSelf);
+	}
+
+voidDockingDlgInterface::destroy()  {    };
+
+voidDockingDlgInterface::display(bool toShow = true) const  {		::SendMessage(_hParent, toShow?NPPM_DMMSHOW:NPPM_DMMHIDE, 0, (LPARAM)_hSelf);
+	};
+
+voidDockingDlgInterface::init(HINSTANCE hInst, HWND parent)	 {
+		StaticDialog::init(hInst, parent);
+		TCHAR temp[MAX_PATH];
+		::GetModuleFileName((HMODULE)hInst, temp, MAX_PATH);
+		_moduleName = PathFindFileName(temp);
+	};
+
+voidDockingDlgInterface::create(tTbData * data, bool isRTL = false) {
+		StaticDialog::create(_dlgID, isRTL);
+		TCHAR temp[MAX_PATH];
+		::GetWindowText(_hSelf, temp, MAX_PATH);
+		_pluginName = temp;
+        // user information
+		data->hClient		= _hSelf;
+		data->pszName		= (TCHAR *)_pluginName.c_str();
+
+		// supported features by plugin
+		data->uMask			= 0;
+
+		// additional info
+		data->pszAddInfo	= NULL;
+	};
+
+voidDockingDlgInterface::updateDockingDlg()  {
+		::SendMessage(_hParent, NPPM_DMMUPDATEDISPINFO, 0, (LPARAM)_hSelf);
+	}
+
+voidDockingDlgInterface::destroy()  {
+    };
+
+voidDockingDlgInterface::display(bool toShow = true) const  {
+		::SendMessage(_hParent, toShow?NPPM_DMMSHOW:NPPM_DMMHIDE, 0, (LPARAM)_hSelf);
+	};
+

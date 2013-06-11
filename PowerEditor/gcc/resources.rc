@@ -1,0 +1,19 @@
+#include "./include/various.h"
+
+#define TEXT(quote)	quote
+
+#include "../src/scitillacomponent/columneditor.rc"
+#include "../src/scitillacomponent/findreplacedlg.rc"
+#include "../src/scitillacomponent/userdefinedialog.rc"
+#include "../src/misc/regext/regextdlg.rc"
+#include "../src/wincontrols/colourpicker/colourpopup.rc"
+#include "../src/wincontrols/colourpicker/wordstyledlg.rc"
+#include "../src/wincontrols/dockingwnd/dockingguiwidget.rc"
+#include "../src/wincontrols/grid/shortcutmapper.rc"
+#include "../src/wincontrols/preference/preference.rc"
+#include "../src/wincontrols/shortcut/runmacrodlg.rc"
+#include "../src/wincontrols/shortcut/shortcut.rc"
+#include "../src/wincontrols/tasklist/tasklistdlg.rc"
+#include "../src/wincontrols/staticdialog/rundlg/rundlg.rc"
+#include "../src/wincontrols/windowsdlg/windowsdlg.rc"
+#include "../src/notepad_plus.rc"

@@ -1,0 +1,1 @@
+#include "windowinterface.h"void WindowInterface::init(HINSTANCE hInst, HWND parent, HWND hSelf)  {		Window::init(hInst, parent);		_hSelf = hSelf;	};void WindowInterface::destroy()  {};

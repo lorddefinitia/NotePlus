@@ -1,0 +1,12 @@
+#ifndef _MASTER_H
+#define _MASTER_H
+
+#include "scintilla.h"
+#include "scintillaeditview.h"
+#include "notepad_plus.h"
+#include "buffer.h"
+#include "scintillaeditview.h"
+#include "userdefinedialog.h"
+#include "parameters.h"
+
+#endif
