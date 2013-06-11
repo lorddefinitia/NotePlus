@@ -9,7 +9,9 @@ Does not (seem to) run correctly.
 
 License
 =====
-This code is a fork of Don HR's excellent Notepad++ for Windows. As such, original copyrights his, code licensed under the GPL.
+This code is a fork of Don HR's excellent Notepad++ for Windows. As such, original copyrights are his, code licensed under the GPL.
+
+As of now, original images etc. are kept with the code for simplicity; if future objections are made I am happy to author my own images. :)
 
 Based on Notepad++ 6.3.3
 
@@ -20,11 +22,12 @@ Prerequisites
 - wine-dev (32bit)
 - g++ (make sure you have the 32 bit compiler tool chain and libraries)
 - make
+- scintilla
 
 Roadmap
 =====
 
-- Get UI runniing
+- Get UI running
 - Remove as many warnings as possible
 - Abstract/port as many w32 api call away as possible
 - Work on a Qt UI port.
