@@ -23,6 +23,10 @@ Why a fork to run on winelib? Notepad++ already runs well on Wine, so why port i
 Well, the goal is to build up the build system using winelib, and port it bit by bit to a platform independent toolkit.
 Perhaps eventually we can build the port cross system on Windows again. :)
 
+As for plugins, if they are open source it should be possible to simply support them with the current API and recompile.
+
+If your plugin is also a windows application, ideas are welcome. It may be possible to write a wine-bridge to support more complicated plugins, and communicate with the main process over DBUS.
+
 Prerequisites
 =====
 
