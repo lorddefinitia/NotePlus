@@ -1,0 +1,5 @@
+Work summary:
+
+Remove FIXME's and TODOs
+Get past the segfault
+Remove W32 API by porting Window and subclasses to Qt API

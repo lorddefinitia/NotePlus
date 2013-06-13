@@ -1,0 +1,4 @@
+*.o
+*~
+SciLexer.dll
+scintilla324.tgz
