@@ -9,27 +9,19 @@ SUBDIRS               =
 DLLS                  =
 LIBS                  =
 EXES                  = notepad++.exe
-# -m32
-#can't figure out the appropriate x32 flags at the moment
 CXXFLAGS = -fpermissive -fshort-wchar -DLINUX
 
 ### Common settings
 
-CEXTRA                = -O0 -Wall -m32 -g
-CXXEXTRA              = -O0 -Wall -m32 -g
+#-O0
+CEXTRA                = -Wall -m32 -g
+CXXEXTRA              = -Wall -m32 -g 
 RCEXTRA               =
 DEFINES               = -DWIN32 -D_WINDOWS -D_USE_64BIT_TIME_T -DTIXML_USE_STL -DTIXMLA_USE_STL -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_WARNINGS -D_CRT_NON_CONFORMING_SWPRINTFS=1 
 INCLUDE_PATH          = -I/usr/include/ -I../patches -I../src/WinControls/AboutDlg -I../../scintilla/include -I../include -I../src/WinControls -I../src/WinControls/ImageListSet -I../src/WinControls/OpenSaveFileDialog -I../src/WinControls/SplitterContainer -I../src/WinControls/StaticDialog -I../src/WinControls/TabBar -I../src/WinControls/ToolBar -I../src/MISC/Process -I../src/ScitillaComponent -I../src/MISC -I../src/MISC/SysMsg -I../src/WinControls/StatusBar -I../src -I../src/WinControls/StaticDialog/RunDlg -I../src/tinyxml -I../src/WinControls/ColourPicker -I../src/Win32Explr -I../src/MISC/RegExt -I../src/WinControls/TrayIcon -I../src/WinControls/shortcut -I../src/WinControls/Grid -I../src/WinControls/ContextMenu -I../src/MISC/PluginsManager -I../src/WinControls/Preference -I../src/WinControls/WindowsDlg -I../src/WinControls/TaskList -I../src/WinControls/DockingWnd -I../src/WinControls/ToolTip -I../src/MISC/Exception -I../src/MISC/Common -I../src/tinyxml/tinyXmlA -I../src/WinControls/AnsiCharPanel -I../src/WinControls/ClipboardHistory -I../src/WinControls/FindCharsInRange -I../src/WinControls/VerticalFileSwitcher -I../src/WinControls/ProjectPanel -I../src/WinControls/DocumentMap -I../src/WinControls/FunctionList
 DLL_PATH              =
-#DLL_IMPORTS           = comdlg32 \
-#			shell32 \
-#			shlwapi \
-#			user32 \
-#			gdi32 \
-#			advapi32
 LIBRARY_PATH          =
 LIBRARIES             =  -lcomctl32 -lshlwapi -lshell32
-#-lOleacc
 #LIBRARIES             =  -lcomctl32 -lshlwapi -lshell32 -lOleacc
 
 ### notepad++.exe sources and settings
@@ -127,7 +119,8 @@ notepad___exe_CXX_SRCS= ../src/MISC/Common/common.cpp \
 			../src/parameters.cpp \
 			../src/uniconversion.cpp \
 			../src/utf8_16.cpp \
-			../src/winmain.cpp
+			../src/winmain.cpp \
+			../src/noteplus.cpp
 notepad___exe_RC_SRCS = ../src/MISC/RegExt/regExtDlg.rc \
 			../src/Notepad_plus.rc \
 			../src/ScitillaComponent/FindReplaceDlg.rc \
@@ -150,25 +143,15 @@ notepad___exe_RC_SRCS = ../src/MISC/RegExt/regExtDlg.rc \
 			../src/WinControls/WindowsDlg/WindowsDlg.rc \
 			../src/WinControls/shortcut/RunMacroDlg.rc \
 			../src/WinControls/shortcut/shortcut.rc
-#-Wb,--as-cmd='as --32',--ld-cmd='ld -melf_i386'
-#can't figure out why this bombs right now
-notepad___exe_LDFLAGS = -mwindows -m32 
-#			-mno-cygwin \
+notepad___exe_LDFLAGS = -mwindows -m32 --debug
 notepad___exe_ARFLAGS =
 notepad___exe_DLL_PATH=
-#DLL_IMPORTS           = comdlg32 \
-#			shell32 \
-#			shlwapi \
-#			user32 \
-#			gdi32 \
-#			advapi32
-notepad___exe_DLLS    = odbc32 \
-			ole32 \
-			oleaut32 \
-			winspool \
-			odbccp32 \
-			kernel32 \
-      ntdll \
+DLL_IMPORTS           = comdlg32 \
+      shell32 \
+      shlwapi \
+      user32 \
+      gdi32 \
+      advapi32 \
       advapi32 \
       gdi32 \
       version \
@@ -179,7 +162,14 @@ notepad___exe_DLLS    = odbc32 \
       winspool \
       comdlg32 \
       rpcrt4 \
-      uxtheme
+      uxtheme \
+      dbghelp
+notepad___exe_DLLS    = odbc32 \
+		  ole32 \
+		  oleaut32 \
+		  winspool \
+		  odbccp32
+			
 notepad___exe_LIBRARY_PATH= 
 notepad___exe_LIBRARIES= uuid
 

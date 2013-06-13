@@ -3,36 +3,36 @@
 Window::Window(): _hInst(NULL), _hParent(NULL), _hSelf(NULL) {};
 Window::~Window() {};
 
-void Window::init(HINSTANCE hInst, HWND parent){
+void Window::init(HINSTANCE hInst, HWND parent) {
 	_hInst = hInst;
 	_hParent = parent;
 }
 
-void Window::reSizeTo(RECT & rc) { 
+void Window::reSizeTo(RECT & rc) {
 	::MoveWindow(_hSelf, rc.left, rc.top, rc.right, rc.bottom, TRUE);
 	redraw();
 };
 
-void Window::reSizeToWH(RECT & rc) { 
+void Window::reSizeToWH(RECT & rc) {
 	::MoveWindow(_hSelf, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top, TRUE);
 	redraw();
 };
 
-void Window::display(bool toShow) const  {
+void Window::display(bool toShow) const {
 	::ShowWindow(_hSelf, toShow?SW_SHOW:SW_HIDE);
 };
 
-void Window::redraw(bool forceUpdate) const  {
+void Window::redraw(bool forceUpdate) const {
 	::InvalidateRect(_hSelf, NULL, TRUE);
 	if (forceUpdate)
 		::UpdateWindow(_hSelf);
 };
 
-void Window::getClientRect(RECT & rc) const  {
+void Window::getClientRect(RECT & rc) const {
 	::GetClientRect(_hSelf, &rc);
 };
 
-void Window::getWindowRect(RECT & rc) const  {
+void Window::getWindowRect(RECT & rc) const {
 	::GetWindowRect(_hSelf, &rc);
 };
 

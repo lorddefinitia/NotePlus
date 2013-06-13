@@ -14,10 +14,73 @@
 
 #define _S_IWRITE 0x0080
 
-inline itoa(int x,char* y,int z){
-    char* rstr;
-    rstr = sprintf(y,"%*d",z,x);
+
+//courtesy http://www.jb.man.ac.uk/~slowe/cpp/itoa.html#dev
+
+/**
+ * C++ version 0.4 std::string style "itoa":
+ * Contributions from Stuart Lowe, Ray-Yuan Sheu,
+ * Rodrigo de Salvo Braz, Luc Gallant, John Maloney
+ * and Brian Hunt
+ */
+std::string itoa(int value, int base) {
+
+	std::string buf;
+
+	// check that the base if valid
+	if (base < 2 || base > 16) return buf;
+
+	enum { kMaxDigits = 35 };
+	buf.reserve( kMaxDigits ); // Pre-allocate enough space.
+
+	int quotient = value;
+
+	// Translating number to string with base:
+	do {
+		buf += "0123456789abcdef"[ std::abs( quotient % base ) ];
+		quotient /= base;
+	} while ( quotient );
+
+	// Append the negative sign
+	if ( value < 0) buf += '-';
+
+	std::reverse( buf.begin(), buf.end() );
+	return buf;
 }
+
+/**
+ * C++ version 0.4 char* style "itoa":
+ * Written by Lukás Chmela
+ * Released under GPLv3.
+ */
+char* itoa(int value, char* result, int base) {
+	// check that the base if valid
+	if (base < 2 || base > 36) { *result = '\0'; return result; }
+
+	char* ptr = result, *ptr1 = result, tmp_char;
+	int tmp_value;
+
+	do {
+		tmp_value = value;
+		value /= base;
+		*ptr++ = "zyxwvutsrqponmlkjihgfedcba9876543210123456789abcdefghijklmnopqrstuvwxyz" [35 + (tmp_value - value * base)];
+	} while ( value );
+
+	// Apply negative sign
+	if (tmp_value < 0) *ptr++ = '-';
+	*ptr-- = '\0';
+	while(ptr1 < ptr) {
+		tmp_char = *ptr;
+		*ptr--= *ptr1;
+		*ptr1++ = tmp_char;
+	}
+	return result;
+}
+
+//inline itoa(int x,char* y,int z){
+//    char* rstr;
+//    rstr = sprintf(y,"%*d",z,x);
+//}
 
 #define _wtoi atoi
 

@@ -312,7 +312,6 @@ private:
 		bool _isSynScollV;
 		bool _isSynScollH;
 		SyncInfo():_line(0), _column(0), _isSynScollV(false), _isSynScollH(false){};
-        
         bool doSync() const  {return (_isSynScollV || _isSynScollH); };
 	} _syncInfo;
 
@@ -386,7 +385,7 @@ int  otherFromView (int whichOne);
 	bool activateBuffer(BufferID id, int whichOne);			//activate buffer in that view if found
 	void notifyBufferActivated(BufferID bufid, int view);
 	void performPostReload(int whichOne);
-//END: Document management
+  //END: Document management
 
 	int doSaveOrNot(const TCHAR *fn);
 	int doReloadOrNot(const TCHAR *fn, bool dirty);
@@ -404,7 +403,7 @@ int  otherFromView (int whichOne);
 	void dropFiles(HDROP hdrop);
 	void checkModifiedDocument();
 
-    void getMainClientRect(RECT & rc) const;
+  void getMainClientRect(RECT & rc) const;
 	void staticCheckMenuAndTB() const;
 	void dynamicCheckMenuAndTB() const;
 	void enableConvertMenuItems(formatType f) const;
@@ -419,20 +418,20 @@ void  setLangStatus (LangType langType);
 	void setUniModeText();
 
 	void checkLangsMenu(int id) const ;
-    void setLanguage(LangType langType);
+  void setLanguage(LangType langType);
 	enum LangType menuID2LangType(int cmdID);
 
-void  checkMenuItem (int itemID, bool willBeChecked) const ;
+  void  checkMenuItem (int itemID, bool willBeChecked) const ;
 	void MaintainIndentation(TCHAR ch);
 	
 	void addHotSpot();
 
-void  bookmarkAdd (int lineno) const ;
-void  bookmarkDelete (int lineno) const ;
-bool  bookmarkPresent (int lineno) const ;
-void  bookmarkToggle (int lineno) const ;
-    void bookmarkNext(bool forwardScan);
-void  bookmarkClearAll () const ;
+  void  bookmarkAdd (int lineno) const ;
+  void  bookmarkDelete (int lineno) const ;
+  bool  bookmarkPresent (int lineno) const ;
+  void  bookmarkToggle (int lineno) const ;
+  void bookmarkNext(bool forwardScan);
+  void  bookmarkClearAll () const ;
 
 	void copyMarkedLines();
 	void cutMarkedLines();

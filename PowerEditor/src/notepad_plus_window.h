@@ -33,35 +33,23 @@
 
 class Notepad_plus_Window : public Window {
 public:
-	Notepad_plus_Window() {};
+	Notepad_plus_Window();
 	void init(HINSTANCE, HWND, const TCHAR *cmdLine, CmdLineParams *cmdLineParams);
 
 	bool isDlgsMsg(MSG *msg, bool unicodeSupported) const;
 	
-	HACCEL getAccTable() const{
-		return _notepad_plus_plus_core.getAccTable();
-	};
+	HACCEL getAccTable() const;
 	
-	bool emergency(generic_string emergencySavedDir)
-	{
-		return _notepad_plus_plus_core.emergency(emergencySavedDir);
-	};
+	bool emergency(generic_string emergencySavedDir);
 
-	bool isPrelaunch() const {
-		return _isPrelaunch;
-	};
+	bool isPrelaunch() const;
 
-	void setIsPrelaunch(bool val) {
-		_isPrelaunch = val;
-	};
+	void setIsPrelaunch(bool val);
 
-    virtual void destroy(){
-        ::DestroyWindow(_hSelf);
-    };
+  virtual void destroy();
 
-	static const TCHAR * Notepad_plus_Window::getClassName() {
-		return _className;
-	};
+	static const TCHAR * getClassName();
+	
 	static HWND gNppHWND;	//static handle to Notepad++ window, NULL if non-existant
 	
 private:

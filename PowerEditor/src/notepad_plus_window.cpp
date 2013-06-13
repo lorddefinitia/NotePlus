@@ -34,6 +34,7 @@ HWND Notepad_plus_Window::gNppHWND = NULL;
 
 void Notepad_plus_Window::init(HINSTANCE hInst, HWND parent, const TCHAR *cmdLine, CmdLineParams *cmdLineParams)
 {
+  cout << "\n\nHello from the window\n\n";
 	time_t timestampBegin = 0;
 	if (cmdLineParams->_showLoadingTime)
 		timestampBegin = time(NULL);
@@ -50,7 +51,7 @@ void Notepad_plus_Window::init(HINSTANCE hInst, HWND parent, const TCHAR *cmdLin
 	nppClass.hCursor = ::LoadCursor(NULL, IDC_ARROW);
 	nppClass.hbrBackground = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
 	nppClass.lpszMenuName = MAKEINTRESOURCE(IDR_M30_MENU);
-	nppClass.lpszClassName = _className;
+	nppClass.lpszClassName = "Notepad++";
 
 	_isPrelaunch = cmdLineParams->_isPreLaunch;
 
@@ -70,8 +71,8 @@ void Notepad_plus_Window::init(HINSTANCE hInst, HWND parent, const TCHAR *cmdLin
 	
 	_hSelf = ::CreateWindowEx(
 					WS_EX_ACCEPTFILES | (_notepad_plus_plus_core._nativeLangSpeaker.isRTL()?WS_EX_LAYOUTRTL:0),\
-					_className,\
-					TEXT("Notepad++"),\
+					"Notepad++",\
+					"Notepad++",\
 					WS_OVERLAPPEDWINDOW	| WS_CLIPCHILDREN,\
 					// CreateWindowEx bug : set all 0 to walk around the pb
 					0, 0, 0, 0,\
@@ -234,4 +235,31 @@ bool Notepad_plus_Window::isDlgsMsg(MSG *msg, bool unicodeSupported) const
 	}
 	return false;
 }
+
+Notepad_plus_Window::Notepad_plus_Window() {};
+
+HACCEL Notepad_plus_Window::getAccTable() const{
+	return _notepad_plus_plus_core.getAccTable();
+};
+
+bool Notepad_plus_Window::emergency(generic_string emergencySavedDir)
+{
+	return _notepad_plus_plus_core.emergency(emergencySavedDir);
+};
+
+bool Notepad_plus_Window::isPrelaunch() const {
+	return _isPrelaunch;
+};
+
+void Notepad_plus_Window::setIsPrelaunch(bool val) {
+	_isPrelaunch = val;
+};
+
+void Notepad_plus_Window::destroy(){
+    ::DestroyWindow(_hSelf);
+};
+
+static const TCHAR * Notepad_plus_Window::getClassName() {
+	return _className;
+};
 

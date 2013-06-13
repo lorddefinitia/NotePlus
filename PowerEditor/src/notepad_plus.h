@@ -137,9 +137,9 @@ public:
 	LRESULT init(HWND hwnd);
 	LRESULT process(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam);
 	void killAllChildren();
-    /*
-HWND  getWindowHandle () const ;
-    */
+  /*
+   * HWND  getWindowHandle () const ;
+   */
 
 	enum comment_mode {cm_comment, cm_uncomment, cm_toggle};
 
@@ -148,18 +148,18 @@ HWND  getWindowHandle () const ;
 
 	// For filtering the modeless Dialog message
 
-// fileOperations
+  // fileOperations
 	//The doXXX functions apply to a single buffer and dont need to worry about views, with the excpetion of doClose, since closing one view doesnt have to mean the document is gone
 	BufferID doOpen(const TCHAR *fileName, bool isReadOnly = false, int encoding = -1);
 	bool doReload(BufferID id, bool alert = true);
 	bool doSave(BufferID, const TCHAR * filename, bool isSaveCopy = false);
 	void doClose(BufferID, int whichOne);
-bool  doDelete (const TCHAR *fileName) const ;
+  bool  doDelete (const TCHAR *fileName) const ;
 
 	void fileOpen();
 	void fileNew();
 
-bool  fileReload () ;
+  bool  fileReload () ;
 
 	bool fileClose(BufferID id = BUFFER_INVALID, int curView = -1);	//use curView to override view to close from
 	bool fileCloseAll();
@@ -173,7 +173,7 @@ bool  fileReload () ;
 	bool addBufferToView(BufferID id, int whichOne);
 	bool moveBuffer(BufferID id, int whereTo);	//assumes whereFrom is otherView(whereTo)
 	bool switchToFile(BufferID buffer);			//find buffer in active view then in other view.
-// end fileOperations
+  // end fileOperations
 
 	bool isFileSession(const TCHAR * filename);
 	void filePrint(bool showDialog);
@@ -182,10 +182,10 @@ bool  fileReload () ;
 	bool saveGUIParams();
 	bool saveProjectPanelsParams();
 	void saveDockingParams();
-void  saveUserDefineLangs () ;
-void  saveShortcuts ();
+  void  saveUserDefineLangs () ;
+  void  saveShortcuts ();
 	void saveSession(const Session & session);
-void  saveFindHistory ();
+  void  saveFindHistory ();
 
 	void getCurrentOpenedFiles(Session & session);
 
@@ -202,7 +202,7 @@ void  saveFindHistory ();
 	bool addCurrentMacro();
 	void macroPlayback(Macro);
     
-void  loadLastSession ();
+  void  loadLastSession ();
 
 	bool loadSession(Session & session);
 
@@ -213,14 +213,14 @@ void  loadLastSession ();
 	bool replaceInFiles();
 	void setFindReplaceFolderFilter(const TCHAR *dir, const TCHAR *filters);
 	vector<generic_string> addNppComponents(const TCHAR *destDir, const TCHAR *extFilterName, const TCHAR *extFilter);
-    int getHtmlXmlEncoding(const TCHAR *fileName) const;
-HACCEL  getAccTable () const;
+  int getHtmlXmlEncoding(const TCHAR *fileName) const;
+  HACCEL  getAccTable () const;
 	bool emergency(generic_string emergencySavedDir);
 
 	
 private:
 	Notepad_plus_Window *_pPublicInterface;
-    Window *_pMainWindow;
+  Window *_pMainWindow;
 	DockingManager _dockingManager;
 	vector<int> _internalFuncIDs;
 
@@ -228,29 +228,29 @@ private:
 	AutoCompletion _autoCompleteSub;	//each Scintilla has its own autoComplete
 
 	SmartHighlighter _smartHighlighter;
-    NativeLangSpeaker _nativeLangSpeaker;
-    DocTabView _mainDocTab;
-    DocTabView _subDocTab;
-    DocTabView *_pDocTab;
+  NativeLangSpeaker _nativeLangSpeaker;
+  DocTabView _mainDocTab;
+  DocTabView _subDocTab;
+  DocTabView *_pDocTab;
 	DocTabView *_pNonDocTab;
 
-    ScintillaEditView _subEditView;
-    ScintillaEditView _mainEditView;
+  ScintillaEditView _subEditView;
+  ScintillaEditView _mainEditView;
 	ScintillaEditView _invisibleEditView;	//for searches
 	ScintillaEditView _fileEditView;		//for FileManager
 
-    ScintillaEditView *_pEditView;
+  ScintillaEditView *_pEditView;
 	ScintillaEditView *_pNonEditView;
 
-    SplitterContainer *_pMainSplitter;
-    SplitterContainer _subSplitter;
+  SplitterContainer *_pMainSplitter;
+  SplitterContainer _subSplitter;
 
-    ContextMenu _tabPopupMenu, _tabPopupDropMenu, _fileSwitcherMultiFilePopupMenu;
+  ContextMenu _tabPopupMenu, _tabPopupDropMenu, _fileSwitcherMultiFilePopupMenu;
 
 	ToolBar	_toolBar;
 	IconList _docTabIconList;
 	
-    StatusBar _statusBar;
+  StatusBar _statusBar;
 	bool _toReduceTabBar;
 	ReBar _rebarTop;
 	ReBar _rebarBottom;
@@ -258,9 +258,9 @@ private:
 	// Dialog
 	FindReplaceDlg _findReplaceDlg;
 	FindIncrementDlg _incrementFindDlg;
-    AboutDlg _aboutDlg;
+  AboutDlg _aboutDlg;
 	RunDlg _runDlg;
-    GoToLineDlg _goToLineDlg;
+  GoToLineDlg _goToLineDlg;
 	ColumnEditorDlg _colEditorDlg;
 	WordStyleDlg _configStyleDlg;
 	PreferenceDlg _preference;
@@ -312,7 +312,7 @@ private:
 		bool _isSynScollV;
 		bool _isSynScollH;
 		SyncInfo():_line(0), _column(0), _isSynScollV(false), _isSynScollH(false){};
-        bool doSync() const  {return (_isSynScollV || _isSynScollH); };
+    bool doSync() const  {return (_isSynScollV || _isSynScollH); };
 	} _syncInfo;
 
 	bool _isUDDocked;
@@ -324,7 +324,7 @@ private:
 	ScintillaAccelerator _scintaccelerator;
 
 	PluginsManager _pluginsManager;
-    ButtonDlg _restoreButton;
+  ButtonDlg _restoreButton;
 
 	bool _isFileOpening;
 
@@ -332,7 +332,7 @@ private:
 
 	vector<pair<int, int> > _hideLinesMarks;
 	StyleArray _hotspotStyles;
-    bool _rememberThisSession; // always true. except -nosession is indicated on the launch time
+  bool _rememberThisSession; // always true. except -nosession is indicated on the launch time
 
 
 	AnsiCharPanel *_pAnsiCharPanel;
@@ -355,22 +355,22 @@ private:
 
 	//User dialog docking
 	void dockUserDlg();
-    void undockUserDlg();
+  void undockUserDlg();
 
 	//View visibility
 	void showView(int whichOne);
 	bool viewVisible(int whichOne);
 	void hideView(int whichOne);
 	void hideCurrentView();
-bool  bothActive () ;
+  bool  bothActive () ;
 	bool reloadLang();
 	bool loadStyles();
 
-int  currentView ();
+  int  currentView ();
 
-int  otherView ();
+  int  otherView ();
 
-int  otherFromView (int whichOne);
+  int  otherFromView (int whichOne);
 
 	bool canHideView(int whichOne);	//true if view can safely be hidden (no open docs etc)
 
@@ -385,7 +385,7 @@ int  otherFromView (int whichOne);
 	bool activateBuffer(BufferID id, int whichOne);			//activate buffer in that view if found
 	void notifyBufferActivated(BufferID bufid, int view);
 	void performPostReload(int whichOne);
-//END: Document management
+  //END: Document management
 
 	int doSaveOrNot(const TCHAR *fn);
 	int doReloadOrNot(const TCHAR *fn, bool dirty);
@@ -403,7 +403,7 @@ int  otherFromView (int whichOne);
 	void dropFiles(HDROP hdrop);
 	void checkModifiedDocument();
 
-    void getMainClientRect(RECT & rc) const;
+  void getMainClientRect(RECT & rc) const;
 	void staticCheckMenuAndTB() const;
 	void dynamicCheckMenuAndTB() const;
 	void enableConvertMenuItems(formatType f) const;
@@ -418,20 +418,20 @@ void  setLangStatus (LangType langType);
 	void setUniModeText();
 
 	void checkLangsMenu(int id) const ;
-    void setLanguage(LangType langType);
+  void setLanguage(LangType langType);
 	enum LangType menuID2LangType(int cmdID);
 
-void  checkMenuItem (int itemID, bool willBeChecked) const ;
+  void  checkMenuItem (int itemID, bool willBeChecked) const ;
 	void MaintainIndentation(TCHAR ch);
 	
 	void addHotSpot();
 
-void  bookmarkAdd (int lineno) const ;
-void  bookmarkDelete (int lineno) const ;
-bool  bookmarkPresent (int lineno) const ;
-void  bookmarkToggle (int lineno) const ;
-    void bookmarkNext(bool forwardScan);
-void  bookmarkClearAll () const ;
+  void  bookmarkAdd (int lineno) const ;
+  void  bookmarkDelete (int lineno) const ;
+  bool  bookmarkPresent (int lineno) const ;
+  void  bookmarkToggle (int lineno) const ;
+  void bookmarkNext(bool forwardScan);
+  void  bookmarkClearAll () const ;
 
 	void copyMarkedLines();
 	void cutMarkedLines();

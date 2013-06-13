@@ -209,6 +209,12 @@ void doException(Notepad_plus_Window & notepad_plus_plus);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int)
 {
+//  throw "I don't like myself";
+//  printf("...\n\n...\n\nHello...\n\n...\n\n");
+  MessageBox(NULL,
+          _T("App Init!"),
+          _T("Winmain Debugging"),
+          NULL);
 	LPTSTR cmdLine = ::GetCommandLine();
 	ParamVector params;
 	parseCommandLine(cmdLine, params);
@@ -341,6 +347,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int)
 		return 0;
         }
 	}
+	
+	//Here is the mess that generates a notepad++ window
 
 	pNppParameters->load();
 	Notepad_plus_Window notepad_plus_plus;
@@ -359,15 +367,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int)
 
 	bool isUpExist = nppGui._doesExistUpdater = (::PathFileExists(updaterFullPath.c_str()) == TRUE);
 
-    bool doUpdate = nppGui._autoUpdateOpt._doAutoUpdate;
+  bool doUpdate = nppGui._autoUpdateOpt._doAutoUpdate;
 
-    if (doUpdate) // check more detail 
-    {
-        Date today(0);
-        
-        if (today < nppGui._autoUpdateOpt._nextUpdateDate)
-            doUpdate = false;
-    }
+  if (doUpdate) // check more detail 
+  {
+      Date today(0);
+      
+      if (today < nppGui._autoUpdateOpt._nextUpdateDate)
+          doUpdate = false;
+  }
 
 	if (TheFirstOne && isUpExist && doUpdate)
 	{
@@ -464,7 +472,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int)
 		::MessageBoxA(Notepad_plus_Window::gNppHWND, ex.what(), "General Exception", MB_OK);
 		doException(notepad_plus_plus);
 	} catch(...) {	//this shouldnt ever have to happen
-		::MessageBoxA(Notepad_plus_Window::gNppHWND, "An exception that we did not yet found its name is just caught", "Unknown Exception", MB_OK);
+		::MessageBoxA(Notepad_plus_Window::gNppHWND, "An exception for which we have not yet found a name was just caught", "Unknown Exception", MB_OK);
 		doException(notepad_plus_plus);
 	}
 

@@ -27,6 +27,11 @@
 
 #include "precompiledheaders.h"
 
+//Note (Sebastian Audet)
+//Window is more or less a wrapper around the w32 api for Windows' Windows
+//There is init legwork to fix on each subclassing window, but this class
+//is a prime candidate for rebinding to Qt Windows
+
 #ifndef WINDOW_CONTROL_H
 #define WINDOW_CONTROL_H
 

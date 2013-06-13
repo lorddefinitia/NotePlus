@@ -1,3 +1,5 @@
+NOTE: THIS IS THE OLD NOTEPAD++ for windows readme. You should not pay it much attention at the moment.
+
 What is Notepad++ ?
 ===================
 
