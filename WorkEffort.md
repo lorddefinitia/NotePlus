@@ -7,6 +7,12 @@ We currently suspect a build issue; Thanks to the work of André Hentschel (visi
 
 I have also begun converting the source to ISO C++, in the hopes that this will uncover a hidden pointer error/problem somewhere in the source.
 
+Problems
+===
+- Pointer issues and integer problems are rampant
+- Many different standards of integer/uint are lying around
+- Should consolidated to a couple of relevent types
+
 PLEASE NOTE:
 
 The source in the repository is significantly altered to avoid circular dependency issues which were encountered during my initial builds.
