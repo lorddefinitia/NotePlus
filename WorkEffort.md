@@ -5,6 +5,8 @@ Currently, the source will build as is, but refuses to load properly into the wi
 
 We currently suspect a build issue; Thanks to the work of André Hentschel (visit #winehackers on IRC) to join in the discussion, we are cleaning up the automated build system to attempt to more closely replicate the build conditions found on Windows.
 
+I have also begun converting the source to ISO C++, in the hopes that this will uncover a hidden pointer error/problem somewhere in the source.
+
 PLEASE NOTE:
 
 The source in the repository is significantly altered to avoid circular dependency issues which were encountered during my initial builds.
